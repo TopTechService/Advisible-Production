@@ -1,0 +1,33 @@
+<apex:page Controller="runGetTenantId">
+  <script>
+    function OpenPage(sourcePage){
+      if(sourcePage == 'namedCredential'){
+        var win=window.open('/lightning/setup/NamedCredential/page?address=%2F0XA7F000000TOXN%2Fe%3FretURL%3D%252F0XA%253FretURL%253D%25252Fsetup%25252Fhome%2526appLayout%253Dsetup%2526tour%253D%2526isdtp%253Dp1%2526sfdcIFrameOrigin%253Dhttps%25253A%25252F%25252Fadvisible.lightning.force.com%2526sfdcIFrameHost%253Dweb%2526nonce%253D6edbed69e2607d21f3ce646d05ea7877c111e5f09050b896c2c49db6148d77b5%2526ltn_app_id%253D06m7F000001LSUiQAO%2526clc%253D1','_blank');
+        win.focus();
+      }
+    }
+  </script>
+  <p>
+    <h1 html-style="align:left; font-size:20px;">Authorise Xero</h1>
+  </p>
+  <p>
+    To authorise Xero click on the authorise Xero button first to open the named credential.
+    Ensure that "Start Authentication Flow on Save" is checked and click Save.<br/> 
+    Authenticate with Xero and then click on the Save Tenant Id button below to complete the process.<br/>
+  </p>
+  <apex:form >
+    <apex:pageBlock >
+      <apex:commandButton value="Authorise Xero" onclick="OpenPage('namedCredential'); return false;"/>
+      <p>
+        <br />
+      </p>
+    </apex:pageBlock>
+    <apex:pageBlock >
+      <apex:commandButton action="{!runGetTenantId}" value="Update Tenant Id" id="theSecondButton"/>
+      <p>
+        <br />
+      </p>
+      <apex:pageMessages />
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
